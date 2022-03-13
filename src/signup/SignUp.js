@@ -50,7 +50,7 @@ function SignUp() {
     setApiProgress(true);
     try {
       const response = await axios.post("/api/1.0/users", body);
-      setSignUpSuccess(response.dat.message)
+      setSignUpSuccess(response.data.message)
     } catch (error) {
       setErrors(error.response.data.validationErrors);
     }
@@ -68,13 +68,13 @@ function SignUp() {
             <Input
               id="username"
               label="Username"
-              onChange={(e) => setUsername(e.target.valu)}
+              onChange={(e) => setUsername(e.target.value)}
               help={errors.username}
             />
             <Input
               id="email"
               label="E-mail"
-              onChange={(e) => setUsername(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
               help={errors.email}
             />
             <Input
@@ -85,7 +85,7 @@ function SignUp() {
               type="password"
             />
             <div className="text-center">
-              <ButtonWithProgress apiProgres={apiProgress} onClick={submit}>
+              <ButtonWithProgress apiProgress={apiProgress} onClick={submit}>
                 Sign Up
               </ButtonWithProgress>
             </div>
